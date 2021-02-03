@@ -1,6 +1,8 @@
 # Pomodoro
 ```
-Creation avec vue.js d'un pomodoro animé
+Simple Pomodoro on vue.js
+
+https://miniyass.github.io/pomodoro/
 ```
 ## Project setup
 ```
