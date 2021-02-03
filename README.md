@@ -4,6 +4,10 @@ Simple Pomodoro on vue.js
 
 https://miniyass.github.io/pomodoro/
 ```
+## Bugs
+```
+Animation unsynch
+```
 ## Project setup
 ```
 npm install
