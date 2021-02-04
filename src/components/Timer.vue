@@ -133,10 +133,6 @@ export default {
 </script>
 
 <style>
-:root {
-  --working: #ff6961;
-  --pausing: #77dd77;
-}
 template {
   width: 100%;
   height: 100%;
@@ -172,7 +168,7 @@ template {
   transform: rotate(90deg);
   transform-origin: center;
   transition: 1s linear all;
-  stroke: var(--working);
+  stroke: #ff6961;
 }
 
 .break {
@@ -181,7 +177,7 @@ template {
   transform: rotate(90deg);
   transform-origin: center;
   transition: 1s linear all;
-  stroke: var(--pausing);
+  stroke: #77dd77;
 }
 
 .timer__svg {
