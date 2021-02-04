@@ -88,7 +88,6 @@ export default {
           alarm.play();
           this.currentStep += 1;
           this.timerChange(this.step[this.currentStep].time);
-          this.timerStart();
           return;
         } else if (this.currentStep > 3) {
           this.timerReset();
