@@ -120,6 +120,7 @@ export default {
       clearInterval(this.timerState);
       this.timerState = null;
       this.resetBtn = false;
+      this.isOnBreak = false;
     },
     timerCount: function() {
       this.totalTime -= 1;
