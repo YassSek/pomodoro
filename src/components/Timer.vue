@@ -19,8 +19,8 @@
           v-bind:class="{ break: isOnBreak, work: !isOnBreak }"
           :stroke-dasharray="circleDasharray"
           d="
-            M 50, 50
-            m -45, 0
+            M 50 50 
+            m-45, 0
             a 45,45 0 1,0 90,0
             a 45,45 0 1,0 -90,0
           "
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+const TIME_MAX = 1500;
 const alarm = new Audio(
   "https://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
 );
@@ -68,14 +69,11 @@ export default {
       const seconds = this.totalTime - this.minutes * 60;
       return this.padTime(seconds);
     },
-    timeLeft: function() {
-      return this.totalTime - this.timePassed;
-    },
     circleDasharray() {
       return `${(this.timeFraction * 283).toFixed(0)} 283`;
     },
     timeFraction() {
-      const fraction = this.timeLeft / this.totalTime;
+      const fraction = this.totalTime / TIME_MAX;
       return fraction - (1 / this.totalTime) * (1 - fraction);
     }
   },
@@ -84,12 +82,13 @@ export default {
       this.resetBtn = true;
       this.timerState = setInterval(() => {
         this.timerCount();
-        if (this.totalTime <= 0 && this.currentStep <= 3) {
+        if (this.totalTime <= 0) {
           alarm.play();
           this.currentStep += 1;
           this.timerChange(this.step[this.currentStep].time);
           return;
-        } else if (this.currentStep > 3) {
+        }
+        if (this.currentStep > 3) {
           this.timerReset();
         }
       }, 1000);
@@ -99,10 +98,10 @@ export default {
       this.resetBtn = true;
     },
     timerChange: function(minutes) {
-      if (minutes == 600) {
+      if (minutes == this.step[3].time) {
         this.isOnBreak = true;
         this.currentStep = 3;
-      } else if (minutes == 300) {
+      } else if (minutes == this.step[1].time) {
         this.isOnBreak = true;
         this.currentStep = 1;
       } else {
@@ -110,7 +109,7 @@ export default {
       }
       this.totalTime = minutes;
       this.timePassed = 0;
-      clearInterval(this.timerState);
+      clearInterval(this.timerState), (this.timerState = null);
       this.timerStart();
     },
     timerReset: function() {
