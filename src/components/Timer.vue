@@ -138,6 +138,14 @@ template {
   height: 100%;
 }
 .base-timer {
+
+background: -moz-linear-gradient(-45deg,  #212230 0%, #0a0b14 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #212230 0%,#0a0b14 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #212230 0%,#0a0b14 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212230', endColorstr='#0a0b14',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  box-shadow: 5px 5px 5px 0px hsl(235, 33%, 6%), inset 4px 4px 15px 0px hsl(236, 18%, 16%), 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  border-radius: 50%;
   position: relative;
   width: 600px;
   height: 600px;
@@ -151,7 +159,7 @@ template {
 }
 
 .timer__path-elapsed {
-  stroke-width: 3px;
+  stroke-width: 2px;
   stroke: hsl(236, 18%, 16%);
 }
 .timer__label {
@@ -163,7 +171,7 @@ template {
 }
 
 .work {
-  stroke-width: 3px;
+  stroke-width: 2px;
   stroke-linecap: round;
   transform: rotate(90deg);
   transform-origin: center;
@@ -172,7 +180,7 @@ template {
 }
 
 .break {
-  stroke-width: 3px;
+  stroke-width: 2px;
   stroke-linecap: round;
   transform: rotate(90deg);
   transform-origin: center;
