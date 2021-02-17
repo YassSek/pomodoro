@@ -138,13 +138,14 @@ template {
   height: 100%;
 }
 .base-timer {
+  background: linear-gradient(
+    135deg,
+    #212230 0%,
+    #0a0b14 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
-background: -moz-linear-gradient(-45deg,  #212230 0%, #0a0b14 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  #212230 0%,#0a0b14 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  #212230 0%,#0a0b14 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212230', endColorstr='#0a0b14',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-  box-shadow: 5px 5px 5px 0px hsl(235, 33%, 6%), inset 4px 4px 15px 0px hsl(236, 18%, 16%), 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 5px 0px hsl(235, 33%, 6%),
+    inset 4px 4px 15px 0px hsl(236, 18%, 16%), 5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: 50%;
   position: relative;
   width: 600px;
@@ -199,7 +200,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212230', end
   margin-top: 50px;
 }
 #lowerBtn button {
-  margin-left: 40px;
   width: 130px;
   height: 60px;
   background-color: hsl(235, 33%, 6%);
@@ -227,14 +227,58 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212230', end
 #upperBtn button {
   margin: 15px;
   padding-bottom: 10px;
-  border: transparent;
   font-size: 3ch;
   width: 130px;
   height: 60px;
 
   background-color: hsl(235, 33%, 6%);
   color: #fff;
-
+  border: transparent;
   border-radius: 40px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .timer__label {
+    font-size: 45px;
+  }
+  .base-timer {
+    margin-left: 40px;
+    width: 300px;
+    height: 300px;
+  }
+  #upperBtn {
+    width: 300px;
+    height: 60px;
+    margin-left: 30px;
+  }
+  #upperBtn button {
+    margin: 0px;
+    padding-bottom: 0px;
+    font-size: 1.5ch;
+    width: 90px;
+    height: 60px;
+  }
+  #lowerBtn {
+    margin-left: 120px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .base-timer {
+    margin-left: 70px;
+    width: 600px;
+    height: 600px;
+  }
+
+  #upperBtn {
+    width: 500px;
+    height: 80px;
+    margin-left: 100px;
+  }
+  #lowerBtn {
+    margin-left: 250px;
+  }
 }
 </style>
